@@ -74,8 +74,8 @@ public class JavaKafkaFilterActive {
 
                         if (words.length > 3) {
                             day = words[0].substring(0,8);
-                            form_phone = words[2].substring(2,13);
-                            to_phone = words[3].substring(2,13);
+                            form_phone = words[2].substring(3,14);
+                            to_phone = words[3].substring(3,14);
                         }
 
                         list.add(new Tuple2<String, String>(form_phone, day));
@@ -114,7 +114,7 @@ public class JavaKafkaFilterActive {
                                     // redis put
                                     logger.warn("day:" + v1._2() + " phone:" + v1._1());
                                     Jedis jedis = RedisClientPool.getInstance().getPool().getResource();
-                                    jedis.pfadd(v1._2(), v1._1());
+                                    jedis.pfadd("11201_"+v1._2(), v1._1());
                                 }
                                 int sum = one.or(0) + old;
                                 Tuple2<Tuple2<String, String>, Integer> output = new Tuple2<Tuple2<String, String>, Integer>(v1, sum);
