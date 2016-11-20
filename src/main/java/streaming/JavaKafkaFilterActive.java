@@ -29,7 +29,7 @@ public class JavaKafkaFilterActive {
 
     private static final Logger logger = Logger.getLogger(JavaKafkaFilterActive.class);
 
-    private static final Pattern SPACE = Pattern.compile("\\t");
+    private static final Pattern SPACE = Pattern.compile("|");
 
     public static void main(String[] args) throws Exception {
         if (args.length < 4) {

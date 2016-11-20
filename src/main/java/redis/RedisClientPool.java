@@ -29,8 +29,8 @@ public class RedisClientPool implements Serializable {
         jedisPoolConfig.setTestOnBorrow(Boolean.valueOf(properties.getProperty("redis.pool.testOnBorrow")));
         jedisPoolConfig.setTestOnReturn(Boolean.valueOf(properties.getProperty("redis.pool.testOnReturn")));
         jedisPool = new JedisPool(jedisPoolConfig ,properties.getProperty("redis.ip") ,
-                Integer.parseInt(properties.getProperty("redis.port")) ,
-                Integer.parseInt(properties.getProperty("redis.password")));
+                Integer.parseInt(properties.getProperty("redis.port")) ,3000,
+                properties.getProperty("redis.password"));
 
         Runtime.getRuntime().addShutdownHook(new Thread(){
             @Override
